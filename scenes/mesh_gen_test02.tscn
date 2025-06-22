@@ -31,4 +31,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75262)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("ImmediateMesh_bkstn")
 script = ExtResource("1_24604")
-p1 = 1.92498
+p1 = 1.37928

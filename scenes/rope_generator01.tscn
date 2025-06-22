@@ -1,20 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbiyss2jd7fbn"]
+[gd_scene load_steps=5 format=3 uid="uid://bbiyss2jd7fbn"]
 
-[ext_resource type="Script" uid="uid://co3g42a75kiry" path="res://scripts/rope_generator00.gd" id="1_qqolx"]
+[ext_resource type="Texture2D" uid="uid://bnbcupokw21i" path="res://addons/kenney_prototype_textures/green/texture_11.png" id="1_1rahi"]
+[ext_resource type="Script" uid="uid://ebjfgof4nj5e" path="res://scripts/rope_generator03.gd" id="2_1rahi"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_n6622"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmuom"]
+albedo_texture = ExtResource("1_1rahi")
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_1rahi"]
 
 [node name="RopeGenerator" type="MeshInstance3D"]
 editor_description = "Testing other rope."
 top_level = true
-mesh = SubResource("ImmediateMesh_n6622")
-script = ExtResource("1_qqolx")
+material_override = SubResource("StandardMaterial3D_jmuom")
+mesh = SubResource("ImmediateMesh_1rahi")
+script = ExtResource("2_1rahi")
 firstTime = false
-iterations = 0
-gravity_default = 9.0
-rope_width = 0.2
+isDrawing = true
+point_count = 10
+is_editor = true
+resoulution = 8
+rope_width = 0.61
+uv_scale = 17.035
+grapple_hook_position = Vector3(0, 0.683747, -6.51142)
 
 [node name="tmpPlayer" type="Node3D" parent="."]
 
 [node name="tmpHook" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316843, -0.894632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.683747, -6.51142)

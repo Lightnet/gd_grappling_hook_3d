@@ -1,16 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dakqda0g344xr"]
+[gd_scene load_steps=6 format=3 uid="uid://dakqda0g344xr"]
 
 [ext_resource type="Script" uid="uid://b3cjuh27qsx21" path="res://scripts/player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://cb2ytw14ainvb" path="res://scenes/rope.tscn" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://c2aqk77nga2n1" path="res://scripts/grapple_controller.gd" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://b6oj1or3ja4nt" path="res://scenes/rope_generator.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvicp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4c2ye"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
-albedo_color = Color(0.567513, 0, 0.125436, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -27,15 +23,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.616078, 0)
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -50)
 
-[node name="Rope" parent="Camera3D" instance=ExtResource("2_i3pqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-visible = false
-
-[node name="GrappleController" type="Node" parent="." node_paths=PackedStringArray("ray", "rope")]
+[node name="GrappleController" type="Node" parent="." node_paths=PackedStringArray("ray", "rope_generator")]
 script = ExtResource("2_onrkg")
 ray = NodePath("../Camera3D/RayCast3D")
-rope = NodePath("../Camera3D/Rope")
+rope_generator = NodePath("../RopeGenerator")
 
 [node name="RopeGenerator" parent="." instance=ExtResource("4_dqkch")]
-top_level = true
-surface_material_override/0 = SubResource("StandardMaterial3D_dqkch")

@@ -1,14 +1,12 @@
 extends Node
 
-@export var ray:RayCast3D
-@export var rope:Node3D
+@onready var player:CharacterBody3D = get_parent()
 
+@export var ray:RayCast3D
+@export var rope_generator:Node3D
 @export var rest_length = 2.0
 @export var stiffness = 10.0
 @export var damping = 1.0
-
-@onready var player:CharacterBody3D = get_parent()
-@onready var rope_generator: MeshInstance3D = $"../RopeGenerator"
 
 var target:Vector3
 var launched = false
@@ -67,19 +65,7 @@ func handle_grapple(delta: float):
 
 func update_rope():
 	if !launched:
-		#rope.visible = false
 		rope_generator.visible = false
-		#rope_generator.StopDrawing()
 		return
-	#rope.visible = true
-	#rope_generator.StartDrawing()
-	#rope_generator.visible = true
-	#rope_generator.StartDrawing()
 	rope_generator.SetPlayerPosition(player.global_position)
-	#rope_generator.SetGrappleHookPosition(target)
-	
-	#var dist = player.global_position.distance_to(target)
-	
-	#rope.look_at(target)
-	#rope.scale = Vector3(1, 1, dist)
-	pass
+	#pass

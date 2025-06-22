@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6oj1or3ja4nt"]
+[gd_scene load_steps=3 format=3 uid="uid://d2wmdus328miu"]
 
-[ext_resource type="Texture2D" uid="uid://bnbcupokw21i" path="res://addons/kenney_prototype_textures/green/texture_11.png" id="1_8h233"]
-[ext_resource type="Script" uid="uid://ebjfgof4nj5e" path="res://scripts/rope_generator03.gd" id="2_itkuk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8h233"]
-albedo_texture = ExtResource("1_8h233")
+[ext_resource type="Script" uid="uid://co3g42a75kiry" path="res://scripts/rope_generator00.gd" id="1_lw8pu"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_n6622"]
 
 [node name="RopeGenerator" type="MeshInstance3D"]
 editor_description = "Testing  rope. This should work correctly."
-top_level = true
-material_override = SubResource("StandardMaterial3D_8h233")
 mesh = SubResource("ImmediateMesh_n6622")
-script = ExtResource("2_itkuk")
+script = ExtResource("1_lw8pu")
 firstTime = false
 isDrawing = true
-point_count = 10
-resoulution = 6
-rope_width = 0.05
-uv_scale = 5.12
+resoulution = 3
+rope_width = 0.01
 player_position = Vector3(0, 0, -0.216358)
 grapple_hook_position = Vector3(0, 1.11958, -2.58799)
 

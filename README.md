@@ -22,7 +22,11 @@ It need to reload editor scene or by closing the scene current hold @tool script
 create MeshIstance3D
 - mesh > new ImmediateMesh
 ```
-- rope_generator00.gd
+- rope_generator00.gd (No UV Texture)
+- rope_generator03.gd (UV Texture bugs)
+	- strange uv scale not correctly.
+	- material set but not in game set material. Use override material.
+
 
 # Credits:
 - How to make a GRAPPLING GUN / HOOK in Godot 4 Tutorial

@@ -51,8 +51,8 @@ var rope_length: float
 ## rope radius
 @export var rope_width: float = 0.1
 
-var texture_height_to_width:float = 0.5 # 2048x1024 > Width is 2x more than height
-var uv_scale:float = 1
+@export var texture_height_to_width:float = 0.5 # 2048x1024 > Width is 2x more than height
+@export var uv_scale:float = 0.5
 # mesh generate
 var points: Array[Vector3] = []
 var points_old: Array[Vector3] = []
@@ -163,9 +163,9 @@ func ConstraintConnections():
 	#pass
 
 func GenerateMesh():
-	# Safeguard against empty points array
+	# Safeguard against invalid setup
 	if points.is_empty() or point_count < 2 or resoulution < 3:
-		#print("GenerateMesh: Invalid setup (empty points, point_count < 2, or resoulution < 3)")
+		print("GenerateMesh: Invalid setup (empty points, point_count < 2, or resoulution < 3)")
 		mesh = null
 		return
 	
@@ -174,7 +174,7 @@ func GenerateMesh():
 	index_array.clear()
 	
 	# Calculate normals and tangents
-	CalculateNormals()  # Fix typo: was CalcuateNormals
+	CalcuateNormals()  # Fixed typo: was CalcuateNormals
 	
 	# Create ImmediateMesh
 	var immediate_mesh = ImmediateMesh.new()
@@ -227,17 +227,13 @@ func GenerateMesh():
 	
 	# Add triangles to ImmediateMesh
 	for i in range(index_array.size() / 3):
-		var i1 = index_array[3 * i]
-		var i2 = index_array[3 * i + 1]
-		var i3 = index_array[3 * i + 2]
+		var p1 = vertex_array[index_array[3 * i]]
+		var p2 = vertex_array[index_array[3 * i + 1]]
+		var p3 = vertex_array[index_array[3 * i + 2]]
 		
-		var p1 = vertex_array[i1]
-		var p2 = vertex_array[i2]
-		var p3 = vertex_array[i3]
-		
-		var uv1 = uv1_array[i1]
-		var uv2 = uv1_array[i2]
-		var uv3 = uv1_array[i3]
+		var uv1 = uv1_array[index_array[3 * i]]
+		var uv2 = uv1_array[index_array[3 * i + 1]]
+		var uv3 = uv1_array[index_array[3 * i + 2]]
 		
 		# Calculate triangle normal
 		var edge1 = p2 - p1
@@ -261,7 +257,7 @@ func GenerateMesh():
 	immediate_mesh.surface_end()
 	mesh = immediate_mesh
 
-func CalculateNormals():
+func CalcuateNormals():
 	normal_array.clear()
 	tangent_array.clear()
 	
