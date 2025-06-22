@@ -29,25 +29,26 @@ func lanuch():
 @onready var tmp_hook: Node3D = $tmpHook
 ## first time to create points rope
 @export var firstTime:bool = true
-## create and build mesh real time rope
+## create points and rebuild mesh
 @export var isDrawing:bool = false:
 	set(value):
 		isDrawing = value
 		firstTime = value
-
+## update points again...
 @export var dirty:bool = false
-## springs for rope if disable it will fall stretch. 
+## springs for rope if disable it will fall stretch. It how much will it move.
 @export var iterations: int  = 10
 ## many points for rope to draw line mesh
 @export var point_count: int  = 20 
 ## this handle rope drop which required iterations to stop infi fall. 0 to stop drop.
 @export var gravity_default: float = 9.8
-
+## debug position from player and image position target hook
 @export var is_editor:bool = false
-
-var point_spacing: float = 0.1
+## number segements for rings 2 min to draw rope. 1 no rope. 0 below error.
 @export var resoulution:int = 4
+var point_spacing: float = 0.1
 var rope_length: float
+## rope radius
 @export var rope_width: float = 0.1
 # mesh generate
 var points: Array[Vector3] = []
