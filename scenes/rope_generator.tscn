@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6oj1or3ja4nt"]
+
+[ext_resource type="Script" uid="uid://co3g42a75kiry" path="res://scripts/rope_generator00.gd" id="1_n6622"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_n6622"]
+
+[node name="RopeGenerator" type="MeshInstance3D"]
+editor_description = "Testing  rope. This should work correctly."
+mesh = SubResource("ImmediateMesh_n6622")
+script = ExtResource("1_n6622")
+firstTime = false
+isDrawing = true
+player_position = Vector3(0, 0, -0.216358)
+grapple_hook_position = Vector3(0, 1.11958, -2.58799)
+
+[node name="tmpPlayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.216358)
+
+[node name="tmpHook" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11958, -2.58799)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbiyss2jd7fbn"]
+
+[ext_resource type="Script" uid="uid://co3g42a75kiry" path="res://scripts/rope_generator00.gd" id="1_qqolx"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_n6622"]
+
+[node name="RopeGenerator" type="MeshInstance3D"]
+editor_description = "Testing other rope."
+top_level = true
+mesh = SubResource("ImmediateMesh_n6622")
+script = ExtResource("1_qqolx")
+firstTime = false
+iterations = 0
+gravity_default = 9.0
+rope_width = 0.2
+
+[node name="tmpPlayer" type="Node3D" parent="."]
+
+[node name="tmpHook" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316843, -0.894632)
